@@ -13,15 +13,20 @@ DEPENDENCIES
   memcached
   mlocate
   mongodb
+    git: git://github.com/edelight/chef-mongodb.git
+    revision: 72ffcb114df6c453b59717eb390b2819d48025bd
   mysql
   nginx
   nodejs
+  openssh
   passenger
   php
   rbenv
     git: git://github.com/fnichol/chef-rbenv.git
     revision: 0a3018634bafe58ad21c6ee271af015220e444b9
   redis
+    git: git://github.com/miah/chef-redis.git
+    revision: 5b7e8585b23dcef0de3ec6cfbb31ad75fc912d8e
   ruby_build
     git: git://github.com/fnichol/chef-ruby_build.git
     revision: 4d3361995a6953076951693eff1b326ab499fe1e
@@ -54,9 +59,10 @@ GRAPH
   bluepill (2.3.1)
     rsyslog (>= 0.0.0)
   build-essential (2.0.6)
-  chef-sugar (2.3.2)
+  chef-sugar (2.4.0)
   chef_handler (1.1.6)
   curl (2.0.0)
+  discovery (0.2.2)
   dmg (2.2.0)
   git (4.0.2)
     build-essential (>= 0.0.0)
@@ -69,7 +75,6 @@ GRAPH
   iis (2.1.5)
     windows (>= 1.2.6)
   imagemagick (0.2.3)
-  install_from (3.0.4)
   iptables (0.14.0)
   java (1.28.0)
   jenkins (2.1.2)
@@ -81,14 +86,13 @@ GRAPH
     runit (~> 1.0)
     yum (~> 3.0)
     yum-epel (>= 0.0.0)
-  metachef (3.0.4)
   mlocate (0.3.2)
     apt (>= 0.0.0)
   mongodb (0.16.1)
     apt (>= 1.8.2)
     python (>= 0.0.0)
     runit (>= 1.5.0)
-    yum (>= 3.0)
+    yum (>= 3.0.0)
   mysql (5.5.4)
     yum-mysql-community (>= 0.0.0)
   nginx (2.7.4)
@@ -104,6 +108,8 @@ GRAPH
     build-essential (>= 0.0.0)
     yum-epel (>= 0.0.0)
   ohai (2.0.1)
+  openssh (1.3.4)
+    iptables (>= 0.0.0)
   pacman (1.1.1)
   passenger (0.0.1)
   php (1.5.0)
@@ -119,10 +125,12 @@ GRAPH
   rbenv (0.7.3)
     java (> 1.4.0)
     ruby_build (>= 0.0.0)
-  redis (3.0.4)
-    install_from (>= 0.0.0)
-    metachef (>= 0.0.0)
+  redis (2.1.1)
+    build-essential (>= 0.0.0)
+    discovery (>= 0.2.0)
     runit (>= 0.0.0)
+    stunnel (>= 2.0.0)
+    yum (>= 0.0.0)
   rsyslog (1.12.2)
   ruby_build (0.8.1)
   runit (1.5.10)
@@ -132,6 +140,7 @@ GRAPH
   screen (0.8.0)
     build-essential (>= 0.0.0)
     git (>= 0.0.0)
+  stunnel (2.1.0)
   timezone-ii (0.2.0)
   user (0.3.1)
   vim (1.1.2)

@@ -4,11 +4,6 @@
   "json_class": "Chef::Role",
   "description": "web",
   "default_attributes": {
-    "apache2": {
-      "listen_ports": [
-        "9081"
-      ]
-    },
     "apache": {
       "default_modules": [
         "deflate",
@@ -19,7 +14,29 @@
         "proxy_http",
         "rewrite",
         "xsendfile"
-      ]
+      ],
+      "vhosts": {
+        "sample1": {
+          "port": "8080",
+          "documentroot": "/var/www/html",
+          "servername": "sample1.localhost",
+          "serveradmin": "webmaster@localhost"
+        },
+        "sample2": {
+          "port": "8080",
+          "documentroot": "/var/www/html",
+          "servername": "sample2.localhost",
+          "serveraliases": [
+            "sample2-1.localhost",
+            "sample2-2.localhost"
+          ],
+          "serveradmin": "webmaster@localhost",
+          "extra-config": [
+            "XSendFile on",
+            "XSendFilePath /var/www"
+          ]
+        }
+      }
     },
     "nginx": {
       "version": "1.6.2",
@@ -50,6 +67,7 @@
   },
   "run_list": [
     "recipe[apache2]",
+    "recipe[vhosts]",
     "recipe[nginx]",
     "recipe[mysql::client]",
     "recipe[memcached]"

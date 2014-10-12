@@ -15,7 +15,16 @@
         "enabled": false
       }
     },
-    "tz": "Asia/Tokyo"
+    "users": [
+      "admin"
+    ],
+    "tz": "Asia/Tokyo",
+    "openssh": {
+      "server": {
+        "permit_root_login":"no",
+        "password_authentication":"no"
+      }
+    }
   },
   "run_list": [
     "recipe[yum-epel]",
@@ -26,6 +35,8 @@
     "recipe[zsh]",
     "recipe[screen]",
     "recipe[timezone-ii]",
+    "recipe[openssh]",
+    "recipe[user::data_bag]",
 
     "recipe[mlocate]",
     "recipe[imagemagick]",

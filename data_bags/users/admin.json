@@ -1,12 +1,7 @@
 {
   "id": "admin",
   "comment": "administrator",
-  "home": "/home/admin",
-  "groups": [
-    "admin",
-    "wheel"
-  ],
-  "ssh_keys": [
-    ""
-  ]
+  "hoge": "/home/admin",
+  "groups": ["admin", "wheel"],
+  "ssh_keys": ["dummy"]
 }

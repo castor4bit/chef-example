@@ -1,0 +1,24 @@
+<VirtualHost *:<%= @port %>>
+  ServerAdmin <%= @serveradmin %>
+  ServerName <%= @servername %>
+
+  <% @server_aliases.each do |server_alias| %>
+    ServerAlias <%= server_alias %>
+  <% end %>
+
+  DocumentRoot <%= @documentroot %>
+  <Directory <%= @documentroot %>>
+    Options <%= @options.join(' ') %>
+    AllowOverride <%= @allowoverride %>
+    <% if node['apache']['version'] == '2.4' %>
+      Require all denied
+    <% else %>
+      Order deny,allow
+      Deny from all
+    <% end %>
+  </Directory>
+
+  <% @extra_config.each do |line| %>
+    <%= line %>
+  <% end %>
+</VirtualHost>

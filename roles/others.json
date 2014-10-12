@@ -8,12 +8,20 @@
       "epel": {
         "enabled": true
       }
+    },
+    "redis": {
+      "install_type": "source",
+      "source": {
+        "version": "2.8.17",
+        "url": "http://download.redis.io/releases",
+        "sha": "913479f9d2a283bfaadd1444e17e7bab560e5d1e"
+      }
     }
   },
   "run_list": [
     "recipe[nodejs]",
     "recipe[mongodb::mongodb_org_repo]",
-    "recipe[redis]",
+    "recipe[redis::install]",
     "recipe[jenkins::master]"
   ]
 }
