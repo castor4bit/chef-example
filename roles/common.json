@@ -1,0 +1,35 @@
+{
+  "name": "common",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "common",
+  "default_attributes": {
+    "yum": {
+      "epel": {
+        "enabled": false
+      },
+      "remi": {
+        "enabled": false
+      },
+      "repoforge": {
+        "enabled": false
+      }
+    },
+    "tz": "Asia/Tokyo"
+  },
+  "run_list": [
+    "recipe[yum-epel]",
+    "recipe[yum-repoforge]",
+
+    "recipe[vim]",
+    "recipe[git]",
+    "recipe[zsh]",
+    "recipe[screen]",
+    "recipe[timezone-ii]",
+
+    "recipe[mlocate]",
+    "recipe[imagemagick]",
+
+    "recipe[iptables::disabled]"
+  ]
+}

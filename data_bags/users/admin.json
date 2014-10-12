@@ -1,0 +1,12 @@
+{
+  "id": "admin",
+  "comment": "administrator",
+  "home": "/home/admin",
+  "groups": [
+    "admin",
+    "wheel"
+  ],
+  "ssh_keys": [
+    ""
+  ]
+}

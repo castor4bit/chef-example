@@ -1,0 +1,14 @@
+{
+  "name": "database",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "database",
+  "default_attributes": {
+  },
+  "run_list": [
+    "recipe[mysql::server]",
+    "recipe[mysql::client]"
+  ]
+}
+
+

@@ -1,0 +1,16 @@
+{
+  "name": "users",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "users",
+  "default_attributes": {
+    "users": [
+      "admin"
+    ]
+  },
+  "run_list": [
+    "recipe[user::data_bag]"
+  ]
+}
+
+

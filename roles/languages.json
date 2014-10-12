@@ -1,0 +1,65 @@
+{
+  "name": "languages",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "languages",
+  "default_attributes": {
+    "php": {
+      "directives": {
+        "memory_limit": "512M",
+        "post_max_size": "16M",
+        "default_charset": "UTF-8",
+        "upload_max_filesize": "64M",
+
+        "date.timezone": "Asia/Tokyo",
+
+        "mbstring.language": "Japanese",
+        "mbstring.internal_encoding": "UTF-8",
+        "mbstring.http_input": "pass",
+        "mbstring.http_output": "pass",
+        "mbstring.encoding_translation": "Off"
+      },
+      "packages": [
+        "php-common",
+        "php-devel",
+        "php-cli",
+        "php-gd",
+        "php-mbstring",
+        "php-mcrypt",
+        "php-mysql",
+        "php-pear",
+        "php-pecl-imagick",
+        "php-pecl-memcache",
+        "php-pecl-zendopcache",
+        "php-pdo",
+        "php-tidy"
+      ],
+      "package_options": "--enablerepo=epel,rpmforge"
+    },
+    "rbenv": {
+      "rubies": ["2.1.3"],
+      "global": "2.1.3",
+      "upgrade": true,
+      "gems": {
+        "2.1.3": [
+          { "name": "bundler" },
+          { "name": "rake", "options": "--force" },
+          { "name": "passenger" }
+        ]
+      },
+      "plugins": [
+        { "name": "rbenv-vars",       "git_url": "https://github.com/sstephenson/rbenv-vars.git" },
+        { "name": "rbenv-gem-rehash", "git_url": "https://github.com/sstephenson/rbenv-gem-rehash.git" },
+        { "name": "rbenv-binstubs",   "git_url": "https://github.com/ianheggie/rbenv-binstubs" }
+      ]
+    }
+  },
+  "run_list": [
+    "recipe[php]",
+    "recipe[java]",
+    "recipe[curl::libcurl]",
+    "recipe[ruby_build]",
+    "recipe[rbenv::system]"
+  ]
+}
+

@@ -1,0 +1,21 @@
+{
+  "name": "others",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "others",
+  "default_attributes": {
+    "yum": {
+      "epel": {
+        "enabled": true
+      }
+    }
+  },
+  "run_list": [
+    "recipe[nodejs]",
+    "recipe[mongodb::mongodb_org_repo]",
+    "recipe[redis]",
+    "recipe[jenkins::master]"
+  ]
+}
+
+

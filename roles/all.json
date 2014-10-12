@@ -1,0 +1,15 @@
+{
+  "name": "all",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "all",
+  "default_attributes": {
+  },
+  "run_list": [
+    "role[common]",
+    "role[languages]",
+    "role[webserver]",
+    "role[database]",
+    "role[others]"
+  ]
+}
