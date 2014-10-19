@@ -1,0 +1,39 @@
+<VirtualHost *:<%= @port %>>
+  ServerAdmin <%= @serveradmin %>
+  ServerName <%= @servername %>
+
+  <% @server_aliases.each do |server_alias| %>
+    ServerAlias <%= server_alias %>
+  <% end %>
+
+  SetEnvIf      Request_URI "\.(gif)|(jpg)|(png)|(css)|(js)$" nolog
+  DocumentRoot  <%= @documentroot %>
+  ErrorLog      <%= @documentroot %>/../log/error_log
+  CustomLog     <%= @documentroot %>/../log/access_log combined env=!nolog
+
+  DirectoryIndex index.php
+  AllowEncodedSlashes On
+
+  <Directory <%= @documentroot %>>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ /index.php/$1 [L,QSA]
+
+    Options <%= @options.join(' ') %>
+    AllowOverride <%= @allowoverride %>
+    <% if node['apache']['version'] == '2.4' %>
+      Require all denied
+      Require ip 127.0.0.1
+      Require ip 192.168.33
+    <% else %>
+      Order deny,allow
+      Deny from all
+      Allow from 127.0.0.1
+      Allow from 192.168.33
+    <% end %>
+  </Directory>
+
+  <% @extra_config.each do |line| %>
+    <%= line %>
+  <% end %>
+</VirtualHost>

@@ -5,8 +5,6 @@ DEPENDENCIES
     revision: 57b55505f2105308d8a45612a8658f6f557d8a37
   git
   hostsfile
-    git: git://github.com/customink-webops/hostsfile.git
-    revision: 495fd80ba7a3c306abe8c2585f6ec25bd937fc81
   imagemagick
   java
   jenkins
@@ -58,8 +56,8 @@ GRAPH
     windows (>= 0.0.0)
   bluepill (2.3.1)
     rsyslog (>= 0.0.0)
-  build-essential (2.0.6)
-  chef-sugar (2.4.0)
+  build-essential (2.1.2)
+  chef-sugar (2.4.1)
   chef_handler (1.1.6)
   curl (2.0.0)
   discovery (0.2.2)
@@ -149,7 +147,7 @@ GRAPH
   xml (1.2.6)
     build-essential (>= 0.0.0)
     chef-sugar (>= 0.0.0)
-  yum (3.3.2)
+  yum (3.4.0)
   yum-epel (0.5.1)
     yum (~> 3.0)
   yum-mysql-community (0.1.10)

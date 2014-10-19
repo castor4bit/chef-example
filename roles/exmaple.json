@@ -1,0 +1,40 @@
+{
+  "name": "example",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "example",
+  "default_attributes": {
+    "apache": {
+      "vhosts": {
+        "localtest": {
+          "documentroot": "/var/www/html",
+          "servername": "localtest.example.com",
+          "serveraliases": [
+            "localtest1.example.com"
+          ],
+          "extra-config": [
+            "ProxyRequests Off",
+            "<Proxy *>",
+            "  Order deny,allow",
+            "  Allow from all",
+            "</Proxy>",
+            "RewriteEngine On",
+            "RewriteRule ^/test/(.*)$  http://localtest2.example.com/$1 [P,L]",
+            "XSendFile on",
+            "XSendFileAllowAbove on"
+          ]
+        },
+        "_common": {
+          "port": "80",
+          "serveradmin": "webmaster@localhost",
+          "default-options": [ "All" ],
+          "allowoverride": "None"
+        }
+      }
+    }
+  },
+  "run_list": [
+    "recipe[example::virtualhost]",
+    "recipe[example::hosts]"
+  ]
+}

@@ -28,5 +28,10 @@ $ bundle exec knife solo cook melody
 ```
 
 ```sh
+$ bundle exec knife solo prepare vagrant@127.0.0.1 -p 2222 -i ~/.vagrant.d/insecure_private_key --bootstrap-version 11.16.0
+$ bundle exec knife solo cook    vagrant@127.0.0.1 -p 2222 -i ~/.vagrant.d/insecure_private_key -o 'role[all]'
+```
+
+```sh
 $ bundle exec knife solo cook vagrant@192.168.133.10 -o 'role[all]'
 ```

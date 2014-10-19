@@ -8,7 +8,7 @@ cookbook 'timezone-ii', github: 'L2G/timezone-ii'
 cookbook 'user', github: 'fnichol/chef-user'
 
 cookbook 'curl', github: 'retr0h/cookbook-curl'
-cookbook 'hostsfile', github: 'customink-webops/hostsfile'
+cookbook 'hostsfile'
 cookbook 'mlocate'
 cookbook 'openssh'
 cookbook 'imagemagick'

@@ -10,6 +10,7 @@
     "role[languages]",
     "role[webserver]",
     "role[database]",
-    "role[others]"
+    "role[others]",
+    "role[example]"
   ]
 }
